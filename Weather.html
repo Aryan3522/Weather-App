@@ -2,72 +2,62 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Weather Dashboard</title>
-    <link rel="stylesheet" href="./css/style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather</title>
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 
 <body>
+  <div id="bg">
     <video id="background" src="./bg/weather_background.mp4" autoplay loop muted></video>
-    <h1 class="title">Weather Dashboard</h1>
-
-    <div class="search-container">
-        <input type="text" id="tempInput" placeholder="Enter city name..." />
-        <button class="search-btn" onclick="show()">Search</button>
+  </div>
+  <div class="main-container">
+    <form class="search-bar" onsubmit="return false;">
+      <input type="text" placeholder="Search city..." id="tempInput" autocomplete="off" />
+      <button type="submit" class="search-btn" onclick="show()">
+        <span class="search-icon">&#128269;</span>
+      </button>
+    </form>
+    <div class="weather-box">
+      <div class="location-time">
+        <div class="city">
+          <span id="city">Delhi</span> <span id="country">IN</span>
+        </div>
+        <div class="datetime" id="datetime">Thursday | 10:10 AM</div>
+      </div>
+      <div class="weather-main">
+        <div id="weather_icon">🌍</div>
+        <div class="status" id="description">Cloudy</div>
+        <div class="temp" id="temp">28&deg;C</div>
+        <div class="feels-like" id="feels-like">Feels Like 30&deg;C</div>
+      </div>
     </div>
-
-    <div class="card-container">
-        <div id="cty" class="weather-card">
-            <div class="weather-icon">📍</div>
-            <h3 id="city">__</h3>
-            <p>City</p>
-        </div>
-
-        <div id="country" class="weather-card">
-            <div class="weather-icon">🌍</div>
-            <h3 id="cont">__</h3>
-            <p>Country</p>
-        </div>
-
-        <div class="weather-card">
-            <div class="weather-icon">🌡️</div>
-            <h3 id="temp">__ °C</h3>
-            <p>Temperature</p>
-        </div>
-
-        <div class="weather-card">
-            <div class="weather-icon">🔥</div>
-            <h3 id="temp_max">-- °C</h3>
-            <p>Max Temp</p>
-        </div>
-
-        <div class="weather-card">
-            <div class="weather-icon">❄️</div>
-            <h3 id="temp_min">__ °C</h3>
-            <p>Min Temp</p>
-        </div>
-
-        <div class="weather-card">
-            <div class="weather-icon">💧</div>
-            <h3 id="humidity">__ %</h3>
-            <p>Humidity</p>
-        </div>
-
-        <div class="weather-card">
-            <div class="weather-icon">🌅</div>
-            <h3 id="sunrise">__:__</h3>
-            <p>Sunrise</p>
-        </div>
-
-        <div class="weather-card">
-            <div class="weather-icon">🌇</div>
-            <h3 id="sunset">__</h3>
-            <p>Sunset</p>
-        </div>
+    <div class="grid-cards">
+      <div class="info-card">
+        <div class="info-icon">🌄</div>
+        <div class="info-label">Sunrise</div>
+        <div class="info-value" id="sunrise">06:15 AM</div>
+      </div>
+      <div class="info-card">
+        <div class="info-icon">🌇</div>
+        <div class="info-label">Sunset</div>
+        <div class="info-value" id="sunset">06:05 PM</div>
+      </div>
+      <div class="info-card">
+        <div class="info-icon">💨</div>
+        <div class="info-label">Wind</div>
+        <div class="info-value" id="wind">2.53 m/s</div>
+      </div>
+      <div class="info-card">
+        <div class="info-icon">💧</div>
+        <div class="info-label">Humidity</div>
+        <div class="info-value" id="humidity">20%</div>
+      </div>
     </div>
-
-    <script src="./js/index.js"></script>
+  </div>
+  <script src="./js/index.js"></script>
 </body>
 
 </html>
